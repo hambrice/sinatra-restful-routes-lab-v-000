@@ -25,10 +25,11 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  get '/recipes/:id/delete' do
+  delete '/recipes/:id/delete' do
+    @user = User.find_by(id: params[:id])
+    @user.destroy
     erb :delete
   end
 
-  delete 
 
 end
